@@ -1,11 +1,11 @@
-import { Hono } from 'hono'
-import { serve } from '@hono/node-server'
+import { Hono }        from 'hono'
+import { serve }       from '@hono/node-server'
 import { serveStatic } from '@hono/node-server/serve-static'
 
 const app = new Hono()
 
 // Serve static files from the public directory
-app.use('/public/*', serveStatic({ root: './' }))
+app.use('/public/*', serveStatic({root: './'}))
 
 // New route for the bunny page
 app.get('/', (c) => {
@@ -79,11 +79,15 @@ app.get('/api/bunny-facts', (c) => {
 const port = 3000;
 
 
-
 serve({
 		  fetch: app.fetch,
-		  port
-	  }).on('error', (err) => {
+		  port,
+	  }, (info) => {
+
+	console.debug(`Running on port ${port} `);
+
+
+}).on('error', (err) => {
 	if (err.code === 'EADDRINUSE') {
 		console.error(`Port ${port} is in use.`);
 		process.exit(1);
