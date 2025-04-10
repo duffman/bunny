@@ -2,11 +2,14 @@
   "name": "bunny-app",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.0",
-    "hono": "^4.7.6"
+    "hono": "^4.7.6",
+    "typescript": "^5.8.3"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",

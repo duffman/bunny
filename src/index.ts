@@ -7,13 +7,8 @@ const app = new Hono()
 // Serve static files from the public directory
 app.use('/public/*', serveStatic({ root: './' }))
 
-// Basic route
-app.get('/', (c) => {
-	return c.text('Hello Hono!')
-})
-
 // New route for the bunny page
-app.get('/bunny', (c) => {
+app.get('/', (c) => {
 	return c.html(`
     <!DOCTYPE html>
     <html lang="en">
@@ -28,7 +23,7 @@ app.get('/bunny', (c) => {
           max-width: 800px;
           margin: 0 auto;
           padding: 20px;
-          background-color: #f5f5f5;
+          background-color: #ffffff;
         }
         h1 {
           color: #333;
@@ -47,8 +42,6 @@ app.get('/bunny', (c) => {
         }
         img {
           max-width: 100%;
-          border-radius: 8px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
       </style>
     </head>
