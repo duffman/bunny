@@ -3,13 +3,7 @@ import { serve } from '@hono/node-server'
 import { serveStatic } from '@hono/node-server/serve-static'
 
 const app = new Hono()
-app.use('*', async (c, next) => {
-	const host = c.req.header('host');
-	if (host && !host.startsWith('www.')) {
-		return c.redirect(c.req.url.replace(host, `www.${host}`), 301);
-	}
-	await next();
-});
+
 // Serve static files from the public directory
 app.use('/public/*', serveStatic({ root: './' }))
 
@@ -84,13 +78,12 @@ app.get('/api/bunny-facts', (c) => {
 
 const port = 3000;
 
+
+
 serve({
 		  fetch: app.fetch,
-		  port,
-	  }, (info) => {
-	const url = `http://${info.address === '::' ? 'localhost' : info.address}:${info.port}`;
-	console.log(`Server is running at \x1b[36m${url}\x1b[0m`);
-}).on('error', (err) => {
+		  port
+	  }).on('error', (err) => {
 	if (err.code === 'EADDRINUSE') {
 		console.error(`Port ${port} is in use.`);
 		process.exit(1);
