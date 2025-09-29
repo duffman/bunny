@@ -53,6 +53,7 @@ app.get('/', (c) => {
       </div>
       
       <div class="story">
+	  <h3>Funny Bunny</h3>
         <p>It appeared without warning on a crisp autumn morning—a colossal rabbit hovering above the city skyline, its fur shimmering with an otherworldly iridescence that seemed to absorb and reflect sunlight in impossible ways. Panicked citizens flooded the streets, smartphones raised to capture footage of the enormous creature that defied all known laws of physics and biology. Military jets scrambled to intercept, but they merely circled the massive lagomorph, which remained perfectly still except for the gentle twitching of its long, satellite-dish-sized ears.</p>
         
         <p>For three days, the giant bunny remained suspended over the city, causing worldwide speculation and fear. Scientists detected unusual electromagnetic frequencies emanating from its form, and religious groups proclaimed it everything from divine judgment to a sign of salvation. World leaders convened emergency meetings while social media exploded with theories ranging from advanced alien technology to a collective hallucination caused by contaminated water supplies.</p>
